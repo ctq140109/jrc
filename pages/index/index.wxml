@@ -1,1 +1,0 @@
-<van-stepper value="{{ 1 }}" bind:change="onChange" />

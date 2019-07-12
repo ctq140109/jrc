@@ -2,6 +2,7 @@
   "usingComponents": {
     "van-button": "/dist/button/index",
     "van-transition": "/dist/transition/index",
-    "van-stepper": "/dist/stepper/index"
+    "van-stepper": "/dist/stepper/index",
+    "van-icon": "/dist/icon/index"
   }
 }
