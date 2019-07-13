@@ -7,7 +7,7 @@ class HTTP {
     url,
     data = {},
     method = 'GET',
-    header = 'json'
+    header = 'www'
   }) {
     return new Promise((resolve, reject) => {
       this._request(url, resolve, reject, data, method, header)
@@ -32,7 +32,7 @@ class HTTP {
           reject();
           // wx.hideNavigationBarLoading();
           // wx.stopPullDownRefresh();
-          this._showToast('请求出错，请稍后重试');
+          this._showToast(res.data.msg);
         }
       },
       fail: (err) => {

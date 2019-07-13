@@ -1,12 +1,54 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/center/center"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "selectedColor": "#2CADA8",
+    "color": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/navtab/footer1.jpg",
+        "selectedIconPath": "images/navtab/footer1-on.jpg"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "images/navtab/footer2.jpg",
+        "selectedIconPath": "images/navtab/footer2-on.jpg"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/navtab/footer3.jpg",
+        "selectedIconPath": "images/navtab/footer3-on.jpg"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "我",
+        "iconPath": "images/navtab/footer4.jpg",
+        "selectedIconPath": "images/navtab/footer4-on.jpg"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于您的收货地址填写，请确认授权！"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }
