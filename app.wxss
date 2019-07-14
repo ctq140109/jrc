@@ -1,4 +1,8 @@
-@import "/dist/common/index.wxss";
-page{
+@import "/components/vant/common/index.wxss";
+@import "/aui/aui.wxss";
+page {
   background: #f5f5f5;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 32rpx;
+  color: #333;
 }

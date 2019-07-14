@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-index": "/components/iview/index/index",
+    "i-index-item": "/components/iview/index-item/index"
+  },
+  "navigationBarTitleText": "选择城市"
+}

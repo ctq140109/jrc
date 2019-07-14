@@ -1,0 +1,31 @@
+.cell{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 20rpx;
+}
+.isBd{
+  border-bottom: 1px solid #dbdbdb;
+}
+.cell .cell_hd,.cell .cell_ft{
+  flex: 1;
+}
+.cell .cell-title{
+  color: inherit;
+}
+.cell .cell_ft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.cell .cell_ft .extra{
+  color: #8a8a8a;
+  font-size: 24rpx;
+}
+.isMargin{
+  margin-right: 20rpx;
+}
+.cell .cell_ft image{
+  width: 25rpx;
+  height: 25rpx;
+}

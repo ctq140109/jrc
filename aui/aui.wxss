@@ -1,0 +1,362 @@
+/*栅格类*/
+
+.aui-row {
+  overflow: hidden;
+  margin: 0;
+}
+
+.aui-row-padded {
+  margin-left: -0.125rem;
+  margin-right: -0.125rem;
+}
+
+.aui-row-padded [class*=aui-col-xs-] {
+  padding: 0.125rem;
+}
+
+.aui-col-xs-1, .aui-col-xs-2, .aui-col-xs-3, .aui-col-xs-4, .aui-col-xs-5,
+.aui-col-xs-6, .aui-col-xs-7, .aui-col-xs-8, .aui-col-xs-9, .aui-col-xs-10,
+.aui-col-xs-11, .aui-col-5 {
+  position: relative;
+  float: left;
+}
+
+.aui-col-xs-12 {
+  width: 100%;
+  position: relative;
+}
+
+.aui-col-xs-11 {
+  width: 91.66666667%;
+}
+
+.aui-col-xs-10 {
+  width: 83.33333333%;
+}
+
+.aui-col-xs-9 {
+  width: 75%;
+}
+
+.aui-col-xs-8 {
+  width: 66.66666667%;
+}
+
+.aui-col-xs-7 {
+  width: 58.33333333%;
+}
+
+.aui-col-xs-6 {
+  width: 50%;
+}
+
+.aui-col-xs-5 {
+  width: 41.66666667%;
+}
+
+.aui-col-xs-4 {
+  width: 33.33333333%;
+}
+
+.aui-col-xs-3 {
+  width: 25%;
+}
+
+.aui-col-xs-2 {
+  width: 16.66666667%;
+}
+
+.aui-col-xs-1 {
+  width: 8.33333333%;
+}
+
+.aui-col-5 {
+  width: 20%;
+}
+
+.aui-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*自动隐藏文字*/
+
+.aui-ellipsis-1 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.aui-ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.aui-ellipsis-3 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/*水平线*/
+
+.aui-hr {
+  width: 100%;
+  position: relative;
+  border-top: 1px solid #ddd;
+  height: 1px;
+}
+
+/*新增边距*/
+
+.aui-padded-12 {
+  padding: 0.6rem !important;
+}
+
+.aui-margin-12 {
+  margin: 0.6rem !important;
+}
+
+/*内外边距类*/
+
+.aui-padded-0 {
+  padding: 0 !important;
+}
+
+.aui-padded-5 {
+  padding: 0.25rem !important;
+}
+
+.aui-padded-10 {
+  padding: 0.5rem !important;
+}
+
+.aui-padded-15 {
+  padding: 0.75rem !important;
+}
+
+.aui-padded-t-0 {
+  padding-top: 0 !important;
+}
+
+.aui-padded-t-5 {
+  padding-top: 0.25rem !important;
+}
+
+.aui-padded-t-10 {
+  padding-top: 0.5rem !important;
+}
+
+.aui-padded-t-15 {
+  padding-top: 0.75rem !important;
+}
+
+.aui-padded-b-0 {
+  padding-bottom: 0 !important;
+}
+
+.aui-padded-b-5 {
+  padding-bottom: 0.25rem !important;
+}
+
+.aui-padded-b-10 {
+  padding-bottom: 0.5rem !important;
+}
+
+.aui-padded-b-15 {
+  padding-bottom: 0.75rem !important;
+}
+
+.aui-padded-l-0 {
+  padding-left: 0 !important;
+}
+
+.aui-padded-l-5 {
+  padding-left: 0.25rem !important;
+}
+
+.aui-padded-l-10 {
+  padding-left: 0.5rem !important;
+}
+
+.aui-padded-l-15 {
+  padding-left: 0.75rem !important;
+}
+
+.aui-padded-r-0 {
+  padding-right: 0 !important;
+}
+
+.aui-padded-r-5 {
+  padding-right: 0.25rem !important;
+}
+
+.aui-padded-r-10 {
+  padding-right: 0.5rem !important;
+}
+
+.aui-padded-r-15 {
+  padding-right: 0.75rem !important;
+}
+
+.aui-margin-0 {
+  margin: 0 !important;
+}
+
+.aui-margin-5 {
+  margin: 0.25rem !important;
+}
+
+.aui-margin-10 {
+  margin: 0.5rem !important;
+}
+
+.aui-margin-15 {
+  margin: 0.75rem !important;
+}
+
+.aui-margin-t-0 {
+  margin-top: 0rem !important;
+}
+
+.aui-margin-t-5 {
+  margin-top: 0.25rem !important;
+}
+
+.aui-margin-t-10 {
+  margin-top: 0.5rem !important;
+}
+
+.aui-margin-t-15 {
+  margin-top: 0.75rem !important;
+}
+
+.aui-margin-b-0 {
+  margin-bottom: 0 !important;
+}
+
+.aui-margin-b-5 {
+  margin-bottom: 0.25rem !important;
+}
+
+.aui-margin-b-10 {
+  margin-bottom: 0.5rem !important;
+}
+
+.aui-margin-b-15 {
+  margin-bottom: 0.75rem !important;
+}
+
+.aui-margin-l-0 {
+  margin-left: 0 !important;
+}
+
+.aui-margin-l-5 {
+  margin-left: 0.25rem !important;
+}
+
+.aui-margin-l-10 {
+  margin-left: 0.5rem !important;
+}
+
+.aui-margin-l-15 {
+  margin-left: 0.75rem !important;
+}
+
+.aui-margin-r-0 {
+  margin-right: 0 !important;
+}
+
+.aui-margin-r-5 {
+  margin-right: 0.25rem !important;
+}
+
+.aui-margin-r-10 {
+  margin-right: 0.5rem !important;
+}
+
+.aui-margin-r-15 {
+  margin-right: 0.75rem !important;
+}
+
+/*边距新增*/
+
+.aui-padded-t-12 {
+  padding-top: 0.6rem !important;
+}
+
+.aui-padded-b-12 {
+  padding-bottom: 0.6rem !important;
+}
+
+.aui-padded-l-12 {
+  padding-left: 0.6rem !important;
+}
+
+.aui-padded-r-12 {
+  padding-right: 0.6rem !important;
+}
+
+.aui-margin-t-12 {
+  margin-top: 0.6rem !important;
+}
+
+.aui-margin-b-12 {
+  margin-bottom: 0.6rem !important;
+}
+
+.aui-margin-l-12 {
+  margin-left: 0.6rem !important;
+}
+
+.aui-margin-r-12 {
+  margin-right: 0.6rem !important;
+}
+
+.aui-clearfix {
+  clear: both;
+}
+
+.aui-clearfix:before {
+  display: table;
+  content: " ";
+}
+
+.aui-clearfix:after {
+  clear: both;
+}
+
+/*文字对齐*/
+
+.aui-text-left {
+  text-align: left !important;
+}
+
+.aui-text-center {
+  text-align: center !important;
+}
+
+.aui-text-justify {
+  text-align: justify !important;
+}
+
+.aui-text-right {
+  text-align: right !important;
+}

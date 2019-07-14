@@ -2,20 +2,28 @@ const app = getApp()
 import {
   banners_url,
   index_navigation_url,
-  index_navigations_url
+  index_navigations_url,
+  select_brand_url,
+  prefecture_url,
+  guess_you_like_url
 } from '../../service/api.js';
 const http = app.globalData.http;
 Page({
   data: {
+    area_name:'',
     area_id: 4,
     banner_list: [], //轮播
     prefecture_list_top: [], //分类
-    count: '0', //判断显示第几种
+    count: 0, //判断显示第几种
     prefecture_list_middle: [], //专区集合
+    brands_list: [], //品牌
+    no_threshold: [], //无门槛图片
+    thunb_list: [],//热门推销
+    like_list: [],//猜你喜欢
   },
   onLoad: function() {
     var vm = this;
-    let res1 = http.request({
+    let req1 = http.request({
       url: banners_url,
       method: 'POST',
       data: {
@@ -23,7 +31,7 @@ Page({
         type: 1
       }
     })
-    let res2 = http.request({
+    let req2 = http.request({
       url: index_navigation_url,
       method: 'POST',
       data: {
@@ -31,7 +39,7 @@ Page({
         type: 1
       }
     })
-    let res3 = http.request({
+    let req3 = http.request({
       url: index_navigations_url,
       method: 'POST',
       data: {
@@ -39,14 +47,45 @@ Page({
         state: 2
       }
     })
-    Promise.all([res1, res2, res3]).then(res => {
+    let req4 = http.request({
+      url: select_brand_url,
+      method: 'POST',
+      data: {
+        agency_manage_id: vm.data.area_id
+      }
+    })
+    let req5 = http.request({
+      url: prefecture_url,
+      method: 'POST',
+      data: {
+        agency_manage_id: vm.data.area_id
+      }
+    })
+    let req6 = http.request({
+      url: guess_you_like_url,
+      method: 'POST',
+      data: {
+        agency_manage_id: vm.data.area_id
+      }
+    })
+    Promise.all([req1, req2, req3, req4, req5, req6]).then(res => {
       console.log(res);
       this.setData({
         banner_list: res[0].data.banner_list,
         count: res[1].data.count,
         prefecture_list_top: res[1].data.prefecture_list,
-        prefecture_list_middle: res[2].data.prefecture_list
+        prefecture_list_middle: res[2].data.prefecture_list,
+        brands_list: res[3].data.brands_list,
+        thunb_list: res[4].data.prefecture_list,
+        no_threshold: res[4].data.no_threshold,
+        like_list: res[5].data.page
       })
+    })
+  },
+  // 跳转选择区域
+  selectArea(){
+    wx.navigateTo({
+      url: '../area/area',
     })
   }
 })
