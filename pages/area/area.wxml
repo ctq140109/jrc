@@ -3,7 +3,7 @@
         <view class="item" wx:for="{{ item.cells }}" wx:for-item="cell" wx:key="" bindtap='selectArea' data-name='{{cell}}'>{{ cell }}</view>
     </wux-index-item>
 </wux-index> -->
-<view class="i-index-demo">
+<!-- <view class="i-index-demo">
     <i-index height="100%" bind:change="onChange">
         <i-index-item 
             wx:for="{{ cities }}" 
@@ -20,4 +20,6 @@
             </view>
         </i-index-item>
     </i-index>
-</view>
+</view> -->
+<import src="../../components/common/wxaSortPicker/wxaSortPicker.wxml"/> 
+<template is="wxaSortPicker" data="{{wxaSortPickerData,dataType}}"/>

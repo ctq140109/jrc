@@ -1,5 +1,6 @@
-.item{
+/* .item{
   background: #fff;
   padding: 20rpx;
   border-bottom: 1px solid #f5f5f5;
-}
+} */
+@import "../../components/common/wxaSortPicker/wxaSortPicker.wxss";
