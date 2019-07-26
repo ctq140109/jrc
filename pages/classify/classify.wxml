@@ -1,2 +1,42 @@
-<!--pages/classify/classify.wxml-->
-<text>pages/classify/classify.wxml</text>
+<view class='productSort'>
+  <view class='header acea-row row-center-wrapper' style='top:0'>
+    <view class='acea-row row-between-wrapper input'>
+      <text class='iconfont icon-sousuo'></text>
+      <input type='text' placeholder='点击搜索商品信息' bindtap="searchSubmitValue" confirm-type='search' name="search" placeholder-class='placeholder'></input>
+    </view>
+  </view>
+  <view class="main_tab">
+    <wux-tabs controlled scroll current="{{ current }}" bindchange="selectClass">
+      <wux-tab key="{{item.id}}" title="{{item.name}}" wx:for="{{classify_list}}" wx:key></wux-tab>
+    </wux-tabs>
+  </view>
+  <view class='aside' style='top:0;margin-top:186rpx'>
+    <block wx:for="{{class_two_list}}" wx:for-item="item" wx:key>
+      <view class='item acea-row row-center-wrapper {{index==navActive?"on":""}}' data-index='{{index}}' data-idx='b{{item.id}}' bindtap='tap'>
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class='conter'>
+    <scroll-view scroll-y="true" scroll-into-view="{{toView}}" style='height:{{height}}rpx;' bindscroll="scroll" scroll-with-animation='true'>
+      <!-- <block wx:for="{{productList}}" wx:key>
+          <view class='listw' id="b{{index}}">
+            <view class='title acea-row row-center-wrapper'>
+                <view class='line'></view>
+                <view class='name'>{{item.cate_name}}</view>
+                <view class='line'></view>
+            </view>
+            <view class='list acea-row'>
+                <block wx:for="{{item.child}}" wx:for-item="item" wx:key>
+                    <navigator hover-class='none' url='/pages/goods_list/goods_list?sid={{item.id}}&title={{item.cate_name}}' class='item acea-row row-column row-middle'>
+                        <view class='picture'><image src='{{item.pic}}'></image></view>
+                        <view class='name line1'>{{item.cate_name}}</view>
+                    </navigator>
+                </block>
+              </view>
+          </view>
+        </block> -->
+      <!-- <view style='height:{{height-300}}rpx;' wx:if='{{number<15}}'></view> -->
+    </scroll-view>
+  </view>
+</view>

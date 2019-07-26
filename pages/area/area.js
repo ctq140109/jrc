@@ -61,11 +61,22 @@ Page({
   },
   onLoad: function() {
     this.getCity();
+    // this.getLocations();
+    // this.getUserLocation();
   },
   //选中返回值
   wxaSortPickerItemTap: function(e) {
     console.log(e.target.dataset.text);
     console.log(e.target.dataset.value); //字符串数组无此字段
+    let name = e.target.dataset.text;
+    let id = e.target.dataset.value;
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2]; //上一个页面
+    wx.navigateBack({
+      success: function() {
+        prevPage.getHomeList(name, id); // 执行前一个页面的方法
+      }
+    })
   },
   getCity() {
     var that = this;
@@ -77,7 +88,7 @@ Page({
       this.setData({
         agency_list: res.data.agency_list
       })
-      for (let i of res.data.agency_list){
+      for (let i of res.data.agency_list) {
         i.value = i.id;
       }
       wxaSortPicker.init(res.data.agency_list, that);
