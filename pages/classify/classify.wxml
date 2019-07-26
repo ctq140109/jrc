@@ -6,37 +6,40 @@
     </view>
   </view>
   <view class="main_tab">
-    <wux-tabs controlled scroll current="{{ current }}" bindchange="selectClass">
+    <wux-tabs controlled scroll current="{{ classify_id }}" bindchange="selectClass">
       <wux-tab key="{{item.id}}" title="{{item.name}}" wx:for="{{classify_list}}" wx:key></wux-tab>
     </wux-tabs>
+    <view class="sort">
+      <text>销量</text>
+    </view>
   </view>
-  <view class='aside' style='top:0;margin-top:186rpx'>
+  <view class='aside' style='top:0;margin-top:224rpx'>
     <block wx:for="{{class_two_list}}" wx:for-item="item" wx:key>
-      <view class='item acea-row row-center-wrapper {{index==navActive?"on":""}}' data-index='{{index}}' data-idx='b{{item.id}}' bindtap='tap'>
+      <view class='item acea-row row-center-wrapper {{index==navActive?"on":""}}' data-index='{{index}}' data-idx='{{item.id}}' bindtap='selectSubClass'>
         <text>{{item.name}}</text>
       </view>
     </block>
   </view>
   <view class='conter'>
-    <scroll-view scroll-y="true" scroll-into-view="{{toView}}" style='height:{{height}}rpx;' bindscroll="scroll" scroll-with-animation='true'>
-      <!-- <block wx:for="{{productList}}" wx:key>
-          <view class='listw' id="b{{index}}">
-            <view class='title acea-row row-center-wrapper'>
-                <view class='line'></view>
-                <view class='name'>{{item.cate_name}}</view>
-                <view class='line'></view>
-            </view>
-            <view class='list acea-row'>
-                <block wx:for="{{item.child}}" wx:for-item="item" wx:key>
-                    <navigator hover-class='none' url='/pages/goods_list/goods_list?sid={{item.id}}&title={{item.cate_name}}' class='item acea-row row-column row-middle'>
-                        <view class='picture'><image src='{{item.pic}}'></image></view>
-                        <view class='name line1'>{{item.cate_name}}</view>
-                    </navigator>
-                </block>
-              </view>
+    <!-- style='height:{{height}}rpx;' bindscroll="scroll" -->
+    <scroll-view scroll-y="true" scroll-with-animation='true'>
+      <block wx:for="{{list}}" wx:key="goods">
+        <view class="sort-item">
+          <view class="list-pic">
+            <image src="{{item.thumb}}" style="width:100%;height:6.25rem" mode="aspectFill"></image>
           </view>
-        </block> -->
-      <!-- <view style='height:{{height-300}}rpx;' wx:if='{{number<15}}'></view> -->
+          <view class="list-text aui-padded-l-5 aui-padded-r-5" style="height:4rem">
+            <view class="aui-ellipsis-2 aui-font-size-13 aui-padded-t-10">
+              <text class="aui-label aui-label-danger aui-label-outlined aui-font-size-10" wx:if="{{item.full_reduction_tag==1}}">满赠</text>
+              <text class="aui-label aui-label-danger aui-label-outlined aui-font-size-10" wx:if="{{item.reduce_tag==1}}">直降</text> {{item.name}}
+            </view>
+            <view class="aui-padded-t-5">
+              <text class="aui-text-danger fweight-5" wx:if="{{item.market_price}}">￥{{item.market_price}}</text>
+              <text class="original_price" wx:if="{{item.original_price}}">￥{{item.original_price}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
     </scroll-view>
   </view>
 </view>

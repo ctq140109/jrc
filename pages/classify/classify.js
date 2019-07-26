@@ -6,22 +6,22 @@ import {
 const http = app.globalData.http;
 Page({
   data: {
-    current: '',
     classify_list: [],
     class_two_list: [],
     productList: [],
     navActive: 0,
 
     area_id: 4,
-    classify_id: '6',
-    classify_two_id: '1',
+    classify_id: '',
+    classify_two_id: '',
     sales: 0,
     price: 0,
     name: '',
     pageNo: '1',
     pageSize: 10,
     totalRow: 0,
-    state: 0
+    state: 0,
+    list: []
   },
   //获取标签栏
   getPidCate: function() {
@@ -39,7 +39,45 @@ Page({
       });
     })
   },
-  getAllCategory: function() {
+  //点击主分类
+  selectClass(e) {
+    console.log('classify_id=', e.detail.key)
+    this.setData({
+      classify_id: e.detail.key
+    })
+    for (let i of this.data.classify_list) {
+      if (i.id == e.detail.key) {
+        this.setData({
+          class_two_list: i.classify_two_list
+        })
+      }
+    }
+    if (this.data.class_two_list.length > 0) {
+      this.selectSubClass({
+        currentTarget: {
+          dataset: {
+            idx: this.data.class_two_list[0].id,
+            index: 0
+          }
+        }
+      });
+    }
+  },
+  //点击子分类
+  selectSubClass: function(e) {
+    var id = e.currentTarget.dataset.idx;
+    var index = e.currentTarget.dataset.index;
+    console.log('classify_two_id=', id);
+    this.setData({
+      toView: 'd' + index,
+      navActive: index,
+      classify_two_id: id,
+      list:[]
+    });
+    this.getCargo();
+  },
+  //获取分类商品
+  getCargo() {
     var vm = this;
     http.request({
       url: classify_goods_url,
@@ -55,30 +93,11 @@ Page({
       }
     }).then(res => {
       console.log(res);
+      this.setData({
+        list: vm.data.list.concat(res.data.page.list),
+        totalRow: res.data.page.totalRow
+      })
     })
-  },
-  selectClass(e) {
-    console.log('classify_id=', e.detail.key)
-    this.setData({
-      current: e.detail.key,
-    })
-    let arr = [];
-    for (let i of this.data.classify_list) {
-      if (i.id == e.detail.key) {
-        this.setData({
-          class_two_list: i.classify_two_list
-        })
-      }
-    }
-  },
-  tap: function(e) {
-    var id = e.currentTarget.dataset.idx;
-    var index = e.currentTarget.dataset.index;
-    console.log('classify_two_id=', id);
-    this.setData({
-      toView: id,
-      navActive: index
-    });
   },
   /**
    * 生命周期函数--监听页面加载
