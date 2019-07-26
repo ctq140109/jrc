@@ -38,7 +38,14 @@ page{background-color:#fff!important;}
 .sort{
   height: 40rpx;
   font-size: 28rpx;
+  color: gray;
   text-align: right;
+}
+.td {
+  width: 0.4rem;
+  height: auto;
+  margin-left: 0.3rem;
+  vertical-align: middle;
 }
 .list-pic{height: 7rem !important;}
 /* .aui-col-xs-6{ width: 48% !important;} */

@@ -71,13 +71,18 @@ Page({
     this.setData({
       toView: 'd' + index,
       navActive: index,
-      classify_two_id: id,
-      list:[]
+      classify_two_id: id
     });
     this.getCargo();
   },
   //获取分类商品
   getCargo() {
+    wx.showLoading({
+      title: '加载中...'
+    })
+    this.setData({
+      list: []
+    })
     var vm = this;
     http.request({
       url: classify_goods_url,
@@ -97,7 +102,37 @@ Page({
         list: vm.data.list.concat(res.data.page.list),
         totalRow: res.data.page.totalRow
       })
+      wx.hideLoading();
     })
+  },
+  sort(e) {
+    var vm = this.data;
+    var idx = e.currentTarget.dataset.sortid;
+    console.log(idx);
+    if (idx == 1) {
+      vm.sales = 0;
+      if (vm.price == 0) {
+        vm.price = 1;
+      } else if (vm.price == 1) {
+        vm.price = 2;
+      } else {
+        vm.price = 1;
+      }
+    } else {
+      vm.price = 0;
+      if (vm.sales == '') {
+        vm.sales = 1;
+      } else if (vm.sales == 1) {
+        vm.sales = 2;
+      } else {
+        vm.sales = 1;
+      }
+    }
+    this.setData({
+      price:vm.price,
+      sales:vm.sales
+    })
+    this.getCargo();
   },
   /**
    * 生命周期函数--监听页面加载
